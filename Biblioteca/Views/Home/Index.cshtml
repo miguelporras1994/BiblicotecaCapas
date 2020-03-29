@@ -1,0 +1,142 @@
+﻿<center>Recgistro De Computador</center>
+
+
+<a class="btn btn-success" data-toggle="modal" data-target="#CreateEqui" onclick="InfoCreate()">Ingresar Equipo Nuevo</a>
+<center><h2>Listado de Equipos</h2>  </center>
+<div class="row">
+    <div class="col-md-4">
+        <input id="searchid" placeholder="Buscar Por Codigo" onkeyup="ShowTeam(1,'Id')" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <input id="searchTeam" placeholder="Buscar Equipo" onkeyup="ShowTeam(1,'Marca')" class="form-control" />
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+
+
+<table class="table">
+
+    <thead>
+        <tr>
+
+            <th>
+                Codigo Interno
+
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th>
+                Marca
+            </th>
+
+            <th>
+                Modelo
+            </th>
+
+            <th>
+                Procesador
+            </th>
+            <th>
+                Ram
+            </th>
+            <th>
+                Tipo de Disco
+            </th>
+            <th>
+                Capacidad
+            </th>
+            <th>
+                Estado
+            </th>
+        </tr>
+    </thead>
+
+
+    <tbody id="ResultTeam"> </tbody>
+
+
+
+</table>
+
+<p id="ResultPag"></p>
+
+<div class="modal fade" id="CreateEqui" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <center><h4 class="modal-title" id="myModalLabel">Ingresar Equipo Nuevo</h4> </center>
+            </div>
+
+            <div class="modal-body">
+
+
+                <div class=" row Derecho">
+                    <div class="col-sm-6 DerechoAbajo">
+                        <center>
+                            <p class="Title2">Codigo de Invetario </p>
+
+
+                            <input class="input" type="text" id="Idequi">
+                        </center>
+
+                    </div>
+
+
+
+                    <div class=" col-sm-6 izquierdo">
+                        <center>
+                            <p class="Title2"> Tipo Dispositivo </p>
+
+
+
+                            <select class="input" id="Tip_Dis" name="select">
+                                <option value="0">Seleccione un el Dispositivo</option>
+
+                            </select>
+                        </center>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class=" row Derecho">
+
+                    <div class="  col-sm-6  Derecho">
+                        <center>
+                            <p class="Title2">Marca </p>
+
+
+
+                            <select class="input" id="Marca" name="select">
+                                <option value="0">Seleccione un el Marca</option>
+                            </select>
+
+                        </center>
+                    </div>
+
+
+
+
+
+                    <div class="  col-sm-6  izquierdoAbajo">
+                        <center>
+                            <p class="Title2 ">Modelo</p>
+
+
+
+                            <input class="input" type="text" id="modelo">
+
+
+                        </center>
+                    </div>
+
+
+                </div>

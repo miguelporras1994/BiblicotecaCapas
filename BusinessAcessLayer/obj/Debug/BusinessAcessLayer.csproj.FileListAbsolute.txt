@@ -1,0 +1,15 @@
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\bin\Debug\BusinessAcessLayer.dll.config
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\bin\Debug\BusinessAcessLayer.dll
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\bin\Debug\BusinessAcessLayer.pdb
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\bin\Debug\EntityFramework.dll
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\bin\Debug\EntityFramework.xml
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\obj\Debug\BusinessAcessLayer.csprojAssemblyReference.cache
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\obj\Debug\BusinessAcessLayer.csproj.CoreCompileInputs.cache
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\obj\Debug\BusinessAcessLayer.csproj.CopyComplete
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\obj\Debug\BusinessAcessLayer.dll
+C:\Users\miguel\source\repos\Biblioteca\BusinessAcessLayer\obj\Debug\BusinessAcessLayer.pdb

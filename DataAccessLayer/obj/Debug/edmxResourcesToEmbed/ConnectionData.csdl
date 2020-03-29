@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibreriasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Estados">
+    <Key>
+      <PropertyRef Name="Id_Estado" />
+    </Key>
+    <Property Name="Id_Estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Estado" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Historial" Relationship="Self.FK__Historial__Id_Es__31EC6D26" FromRole="Estados" ToRole="Historial" />
+    <NavigationProperty Name="libros" Relationship="Self.FK__libros__Id_Estad__29572725" FromRole="Estados" ToRole="libros" />
+  </EntityType>
+  <EntityType Name="Generos">
+    <Key>
+      <PropertyRef Name="Id_Genero" />
+    </Key>
+    <Property Name="Id_Genero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Genero" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="libros" Relationship="Self.FK__libros__Id_Gener__2A4B4B5E" FromRole="Generos" ToRole="libros" />
+  </EntityType>
+  <EntityType Name="Historial">
+    <Key>
+      <PropertyRef Name="Id_Historial" />
+    </Key>
+    <Property Name="Id_Historial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Tercero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Ter" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Libro" Type="Int32" />
+    <Property Name="Titulo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_Pres" Type="DateTime" Precision="0" />
+    <Property Name="Fecha_Devo" Type="DateTime" Precision="0" />
+    <Property Name="Id_Estado" Type="Int32" />
+    <Property Name="Nom_Estado" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Estados" Relationship="Self.FK__Historial__Id_Es__31EC6D26" FromRole="Historial" ToRole="Estados" />
+    <NavigationProperty Name="libros" Relationship="Self.FK__Historial__Id_Li__30F848ED" FromRole="Historial" ToRole="libros" />
+    <NavigationProperty Name="Tercero" Relationship="Self.FK__Historial__Nom_E__300424B4" FromRole="Historial" ToRole="Tercero" />
+  </EntityType>
+  <EntityType Name="libros">
+    <Key>
+      <PropertyRef Name="Id_Libro" />
+    </Key>
+    <Property Name="Id_Libro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Genero" Type="Int32" />
+    <Property Name="Genero" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Marca" Type="Int32" />
+    <Property Name="Marca" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Estado" Type="Int32" />
+    <Property Name="Nom_Estado" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Estados" Relationship="Self.FK__libros__Id_Estad__29572725" FromRole="libros" ToRole="Estados" />
+    <NavigationProperty Name="Generos" Relationship="Self.FK__libros__Id_Gener__2A4B4B5E" FromRole="libros" ToRole="Generos" />
+    <NavigationProperty Name="Historial" Relationship="Self.FK__Historial__Id_Li__30F848ED" FromRole="libros" ToRole="Historial" />
+    <NavigationProperty Name="Marcas" Relationship="Self.FK__libros__Id_Marca__2B3F6F97" FromRole="libros" ToRole="Marcas" />
+  </EntityType>
+  <EntityType Name="Marcas">
+    <Key>
+      <PropertyRef Name="Id_Marca" />
+    </Key>
+    <Property Name="Id_Marca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Marca" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="libros" Relationship="Self.FK__libros__Id_Marca__2B3F6F97" FromRole="Marcas" ToRole="libros" />
+  </EntityType>
+  <EntityType Name="Tercero">
+    <Key>
+      <PropertyRef Name="Id_Tercero" />
+    </Key>
+    <Property Name="Id_Tercero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre_Ter" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido_Ter" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_Nacimi" Type="DateTime" Precision="0" />
+    <Property Name="Direccion" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Localidad" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cuidad" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Historial" Relationship="Self.FK__Historial__Nom_E__300424B4" FromRole="Tercero" ToRole="Historial" />
+  </EntityType>
+  <Association Name="FK__Historial__Id_Es__31EC6D26">
+    <End Role="Estados" Type="Self.Estados" Multiplicity="0..1" />
+    <End Role="Historial" Type="Self.Historial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estados">
+        <PropertyRef Name="Id_Estado" />
+      </Principal>
+      <Dependent Role="Historial">
+        <PropertyRef Name="Id_Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__libros__Id_Estad__29572725">
+    <End Role="Estados" Type="Self.Estados" Multiplicity="0..1" />
+    <End Role="libros" Type="Self.libros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estados">
+        <PropertyRef Name="Id_Estado" />
+      </Principal>
+      <Dependent Role="libros">
+        <PropertyRef Name="Id_Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__libros__Id_Gener__2A4B4B5E">
+    <End Role="Generos" Type="Self.Generos" Multiplicity="0..1" />
+    <End Role="libros" Type="Self.libros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Generos">
+        <PropertyRef Name="Id_Genero" />
+      </Principal>
+      <Dependent Role="libros">
+        <PropertyRef Name="Id_Genero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Historial__Id_Li__30F848ED">
+    <End Role="libros" Type="Self.libros" Multiplicity="0..1" />
+    <End Role="Historial" Type="Self.Historial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="libros">
+        <PropertyRef Name="Id_Libro" />
+      </Principal>
+      <Dependent Role="Historial">
+        <PropertyRef Name="Id_Libro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Historial__Nom_E__300424B4">
+    <End Role="Tercero" Type="Self.Tercero" Multiplicity="0..1" />
+    <End Role="Historial" Type="Self.Historial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tercero">
+        <PropertyRef Name="Id_Tercero" />
+      </Principal>
+      <Dependent Role="Historial">
+        <PropertyRef Name="Id_Tercero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__libros__Id_Marca__2B3F6F97">
+    <End Role="Marcas" Type="Self.Marcas" Multiplicity="0..1" />
+    <End Role="libros" Type="Self.libros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marcas">
+        <PropertyRef Name="Id_Marca" />
+      </Principal>
+      <Dependent Role="libros">
+        <PropertyRef Name="Id_Marca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibreriasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Estados" EntityType="Self.Estados" />
+    <EntitySet Name="Generos" EntityType="Self.Generos" />
+    <EntitySet Name="Historial" EntityType="Self.Historial" />
+    <EntitySet Name="libros" EntityType="Self.libros" />
+    <EntitySet Name="Marcas" EntityType="Self.Marcas" />
+    <EntitySet Name="Tercero" EntityType="Self.Tercero" />
+    <AssociationSet Name="FK__Historial__Id_Es__31EC6D26" Association="Self.FK__Historial__Id_Es__31EC6D26">
+      <End Role="Estados" EntitySet="Estados" />
+      <End Role="Historial" EntitySet="Historial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__libros__Id_Estad__29572725" Association="Self.FK__libros__Id_Estad__29572725">
+      <End Role="Estados" EntitySet="Estados" />
+      <End Role="libros" EntitySet="libros" />
+    </AssociationSet>
+    <AssociationSet Name="FK__libros__Id_Gener__2A4B4B5E" Association="Self.FK__libros__Id_Gener__2A4B4B5E">
+      <End Role="Generos" EntitySet="Generos" />
+      <End Role="libros" EntitySet="libros" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Historial__Id_Li__30F848ED" Association="Self.FK__Historial__Id_Li__30F848ED">
+      <End Role="libros" EntitySet="libros" />
+      <End Role="Historial" EntitySet="Historial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Historial__Nom_E__300424B4" Association="Self.FK__Historial__Nom_E__300424B4">
+      <End Role="Tercero" EntitySet="Tercero" />
+      <End Role="Historial" EntitySet="Historial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__libros__Id_Marca__2B3F6F97" Association="Self.FK__libros__Id_Marca__2B3F6F97">
+      <End Role="Marcas" EntitySet="Marcas" />
+      <End Role="libros" EntitySet="libros" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

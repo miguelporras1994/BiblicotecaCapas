@@ -14,7 +14,7 @@ namespace BusinessAcessLayer.Respositorio
     {
         public void AgregarLibros(ModeloLibro model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 Db.libros.Add(MapearLibroDataBase(model));
             }
@@ -22,7 +22,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EditarLibros(ModeloLibro model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Editar = Db.libros.Find(model.Id_Libro);
                 
@@ -41,7 +41,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EliminarLibros(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Eliminar = Db.libros.Find(id);
                 Db.libros.Remove(Eliminar);
@@ -50,7 +50,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public ModeloLibro ObtenerLibrosId(int  id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return MapearAAplicacionLibros(Db.libros.Find(id));
             }
@@ -58,26 +58,29 @@ namespace BusinessAcessLayer.Respositorio
 
         public List<ModeloLibro> ObtenerTodosLibros()
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
+                var validar = Db.libros.ToList();
+                
+                  
                 return Db.libros.Select(MapearAAplicacionLibros).ToList();
             }
         }
 
 
 
-        private libros MapearLibroDataBase(ModeloLibro Tabla)
+        private libros MapearLibroDataBase(ModeloLibro modelo)
         {
             return new libros()
             {
-                Id_Libro = Tabla.Id_Libro,
-                Titulo = Tabla.Titulo,
-                Id_Genero = Tabla.Id_Genero,
-                Genero = Tabla.Genero,
-                Id_Marca = Tabla.Id_Marca,
-                Marca = Tabla.Marca,
-                Id_Estado = Tabla.Id_Estado,
-                Nom_Estado = Tabla.Nom_Estado
+                Id_Libro = modelo.Id_Libro,
+                Titulo = modelo.Titulo,
+                Id_Genero = modelo.Id_Genero,
+                Genero = modelo.Genero,
+                Id_Marca = modelo.Id_Marca,
+                Marca = modelo.Marca,
+                Id_Estado = modelo.Id_Estado,
+                Nom_Estado = modelo.Nom_Estado,
             };
         }
 
@@ -92,7 +95,7 @@ namespace BusinessAcessLayer.Respositorio
                 Id_Marca = Tabla.Id_Marca,
                 Marca = Tabla.Marca,
                 Id_Estado = Tabla.Id_Estado,
-                Nom_Estado = Tabla.Nom_Estado
+                Nom_Estado = Tabla.Nom_Estado,
             };
         }
 

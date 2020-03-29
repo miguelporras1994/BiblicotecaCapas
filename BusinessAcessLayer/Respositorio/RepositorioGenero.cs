@@ -13,7 +13,7 @@ namespace BusinessAcessLayer.Respositorio
     {
         public void AgregarGenero(ModeloGenero model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 Db.Generos.Add(MapearGenerosDataBase(model));
             }
@@ -21,7 +21,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EditarGenero(ModeloGenero model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Editar = Db.Generos.Find(model.Id_Genero);
                 Editar.Nom_Genero= model.Nom_Genero;
@@ -34,7 +34,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EliminiarGenero(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Eliminar = Db.Generos.Find(id);
                 Db.Generos.Remove(Eliminar);
@@ -43,7 +43,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public ModeloGenero ObtenerGeneroId(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return MapearAAplicacionGeneros(Db.Generos.Find(id));
             }
@@ -51,7 +51,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public List<ModeloGenero> ObtenerTodosGenero()
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return Db.Generos.Select(MapearAAplicacionGeneros).ToList();
             }

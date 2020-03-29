@@ -13,7 +13,7 @@ namespace BusinessAcessLayer.Respositorio
     {
         public void AgregarMarca(ModeloMarca model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 Db.Marcas.Add(MapearMarcaDataBase(model));
             }
@@ -21,7 +21,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EditarMarca(ModeloMarca model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Editar = Db.Marcas.Find(model.Id_Marca);
                 Editar.Nom_Marca = model.Nom_Marca;
@@ -34,7 +34,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EliminarMarca(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Eliminar = Db.Marcas.Find(id);
                 Db.Marcas.Remove(Eliminar);
@@ -43,7 +43,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public ModeloMarca ObtenerMarca(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return MapearAAplicacionMarca(Db.Marcas.Find(id));
             }
@@ -51,7 +51,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public List<ModeloMarca> ObtenerTodosMarca()
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return Db.Marcas.Select(MapearAAplicacionMarca).ToList();
             }

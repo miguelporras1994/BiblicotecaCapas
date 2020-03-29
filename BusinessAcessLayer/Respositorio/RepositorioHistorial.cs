@@ -13,7 +13,7 @@ namespace BusinessAcessLayer.Respositorio
     {
         public void AgregarHistorial(ModeloHistorial model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 Db.Historial.Add(MapearHistorialDataBase(model));
             }
@@ -21,7 +21,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EditarHistorial(ModeloHistorial model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Editar = Db.Historial.Find(model.Id_Libro);
 
@@ -42,7 +42,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EliminiarHistorial(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Eliminar = Db.Historial.Find(id);
                 Db.Historial.Remove(Eliminar);
@@ -51,7 +51,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public ModeloHistorial ObtenerHistorialId(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return MapearAAplicacionHistorial(Db.Historial.Find(id));
             }
@@ -59,7 +59,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public List<ModeloHistorial> ObtenerTodosHistorial()
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return Db.Historial.Select(MapearAAplicacionHistorial).ToList();
             }

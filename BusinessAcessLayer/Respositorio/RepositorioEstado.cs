@@ -12,7 +12,7 @@ namespace BusinessAcessLayer.Respositorio
     {
         public void AgregarEstado(ModeloEstado model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 Db.Estados.Add(MapearEstadosDataBase(model));
             }
@@ -20,7 +20,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EditarEstado(ModeloEstado model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Editar = Db.Estados.Find(model.Id_Estado);
                 Editar.Nom_Estado = model.Nom_Estado;
@@ -33,7 +33,7 @@ namespace BusinessAcessLayer.Respositorio
 
             public void EliminiarEstado(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Eliminar = Db.Estados.Find(id);
                 Db.Estados.Remove(Eliminar);
@@ -42,7 +42,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public ModeloEstado ObtenerEstadoId(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return MapearAAplicacionEstados(Db.Estados.Find(id));
             }
@@ -50,7 +50,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public List<ModeloEstado> ObtenerTodosEstado()
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return Db.Estados.Select(MapearAAplicacionEstados).ToList();
             }

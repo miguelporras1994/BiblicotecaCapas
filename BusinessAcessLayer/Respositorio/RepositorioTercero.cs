@@ -13,7 +13,7 @@ namespace BusinessAcessLayer.Respositorio
     {
         public void AgregarTercero(ModeloTercero model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 Db.Tercero.Add(MapearTerceroDataBase(model));
             }
@@ -21,7 +21,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EditarTercero(ModeloTercero model)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Editar = Db.Tercero.Find(model.Id_Tercero);
 
@@ -41,7 +41,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public void EliminarTercero(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 var Elimninar = Db.Tercero.Find(id);
                 Db.Tercero.Remove(Elimninar);
@@ -50,7 +50,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public ModeloTercero ObtenerTerceroId(int id)
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return MapearAAplicacionTercero(Db.Tercero.Find(id));
             }
@@ -58,7 +58,7 @@ namespace BusinessAcessLayer.Respositorio
 
         public List<ModeloTercero> ObtenerTodosTercero()
         {
-            using (var Db = new LibreriasEntities())
+            using (var Db = new Biblioteca())
             {
                 return Db.Tercero.Select(MapearAAplicacionTercero).ToList();
             }

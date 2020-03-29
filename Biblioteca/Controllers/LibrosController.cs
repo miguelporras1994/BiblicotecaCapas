@@ -36,6 +36,9 @@ namespace Biblioteca.Content
         // GET: Libros
         public ActionResult Index()
         {
+
+    
+
             var listaLibros = _RepositorioLibros.ObtenerTodosLibros();
             return View(listaLibros);
         }

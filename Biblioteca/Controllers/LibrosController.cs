@@ -68,53 +68,14 @@ namespace Biblioteca.Content
             var listarLibros = _RepositorioLibros.ObtenerTodosLibros();
 
 
-            int Numdatos = 0, iniciar = 0, datosporpaginas = 3;
-            int cantidad_pag, paginas;
+           
             string Paginador = "";
 
 
-            //var Db = new ApplicationDbContext();
-            //var Enlace = new Enlace();
-
-
+           
 
             List<object[]> datos = new List<object[]>();
-            //List<Eqs> Encontrar = new List<Eqs>();
-
-
-
-            //var ordenar = Enlace.Eqs.OrderBy(c => c.Id_dispositivo);
-            //Numdatos = ordenar.Count();
-            //iniciar = (numPagina - 1) * datosporpaginas;
-
-            //if (Dife == "null")
-            //{
-
-            //    Encontrar = ordenar.Skip(iniciar).Take(datosporpaginas).ToList(); ;
-            //}
-            //else
-            //if (Dife == "Id")
-            //{
-            //    Encontrar = ordenar.Where(c => c.Id_dispositivo.StartsWith(valor)).Skip(iniciar).Take(datosporpaginas).ToList();
-            //}
-
-            //else if (Dife == "Marca")
-            //{
-            //    Encontrar = ordenar.Where(c => c.Nom_marca.StartsWith(valor) || c.Procesador.StartsWith(valor)).Skip(iniciar).Take(datosporpaginas).ToList();
-
-
-
-
-
-            //}
-
-
-
-            //if ((Numdatos % datosporpaginas) > 0)
-            //{
-            //    Numdatos += 4;
-            //}
-            //cantidad_pag = (Numdatos / datosporpaginas);
+           
 
             string Filtrar = "  ";
 
@@ -135,30 +96,7 @@ namespace Biblioteca.Content
 
             }
 
-            //if (valor == "null")
-            //{
-            //    if (numPagina > 1)
-            //    {
-            //        paginas = numPagina - 1;
-            //        Paginador += "<a class='btn btn-default' onclick='ShowTeam(" + 1 + ',' + "null" + ")'> << </a>" +
-            //        "<a class='btn btn-default' onclick='ShowTeam(" + paginas + ',' + ")'> < </a>";
-            //    }
-            //    if (1 < cantidad_pag)
-            //    {
-            //        Paginador += "<strong class='btn btn-success'>" + numPagina + ".de." + cantidad_pag + "</strong>";
-            //    }
-            //    if (numPagina < cantidad_pag)
-            //    {
-            //        paginas = numPagina + 1;
-            //        Paginador += "<a class='btn btn-default' onclick='ShowTeam(" + paginas + ',' + "null" + ")'>  > </a>" +
-            //                     "<a class='btn btn-default' onclick='ShowTeam(" + cantidad_pag + ',' + "null" + ")'> >> </a>";
-            //    }
-
-
-            //}
-
-
-            //return retorno;
+           
             object[] Mostrar = { Filtrar, Paginador };
 
             datos.Add(Mostrar);
@@ -312,8 +250,7 @@ namespace Biblioteca.Content
 
 
 
-            //Db.SaveChanges();
-
+           
 
 
 

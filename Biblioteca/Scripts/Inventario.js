@@ -1,23 +1,8 @@
 ﻿
 $().ready(() => {
     ShowTeam(1, "null");
-    //var url = window.location;
-    //switch (url.pathname) {
-        
-    //    case "/Libros":
-
-    //        ShowTeam(1, "null");
-    //        break;
-
-    //    case "/Libros/Index":
-
-    //        ShowTeam(1, "null");
-    //        break;
-
-         
-
-
-    //}
+    
+    
 });
 ShowTeam = (Numpagina, Dife) => {
 
@@ -38,12 +23,13 @@ ShowTeam = (Numpagina, Dife) => {
 
 function EditTeam(id) {
 
-    document.getElementById('Idequi2').innerHTML = id;
-     var action = '/Inventario/EditTeam';
+    document.getElementById('Id2').innerHTML = id;
+     var action = '/Libros/EditTeam';
     var enviar = new Inventario();
     HallarComplemento('Marca');
     HallarComplemento('Estado');
-    HallarComplemento('Dispositivo');
+    HallarComplemento('Genero');
+
     enviar.EditTeam(id, action);
 }
 
@@ -84,7 +70,7 @@ var SaveTeam = (difference) => {
 
     if (difference == "Edit") {
 
-        var Id = document.getElementById('Id2').value;
+        var Id = document.getElementById('Id2').innerText;
         var Titulo = document.getElementById('Titulo2').value;
         var Autor = document.getElementById('Autor2').value;
         var Mar = document.getElementById('Marca2').value;
@@ -211,7 +197,7 @@ class Inventario {
             data: informacion,
             success: (response) => {
 
-                Console.log(response);
+                console.log(response);
               
 
                 if (response = "save") {
@@ -270,17 +256,17 @@ class Inventario {
             success: (response) => {
                 console.log(response);
 
-
-                document.getElementById('Tip_Dis2').options[0] = new Option(response[0].Nom_tipo, response[0].Nom_tipo);
-                document.getElementById('Marca2').options[0] = new Option(response[0].Nom_marca, response[0].Nom_marca);
-                document.getElementById('modelo2').value = response[0].Modelo;
-                document.getElementById('Ram2').value = response[0].Ram;
-                document.getElementById('Pro2').value = response[0].Procesador;
-                document.getElementById('Tip_Disco2').value = response[0].Tipo_disco;
-                document.getElementById('CapDisco2').value = response[0].Capa_disco;
-                document.getElementById('Costo2').value = response[0].Costo;
-                document.getElementById('Buyday2').innerHTML = response[1];
-                document.getElementById('Estado2').options[0] = new Option(response[0].Nom_estado, response[0].Nom_estado);
+                document.getElementById('Id2').value = response[0].Id_Libro;
+                document.getElementById('Genero2').options[0] = new Option(response[0].Genero, response[0].Genero);
+                document.getElementById('Genero2').selectedIndex = 0;
+                document.getElementById('Marca2').options[0] = new Option(response[0].Marca, response[0].Marca);
+                document.getElementById('Marca2').selectedIndex = 0;
+                document.getElementById('Autor2').value = response[0].Autor;
+                document.getElementById('Titulo2').value = response[0].Titulo;
+              
+                
+                document.getElementById('Estado2').options[0] = new Option(response[0].Nom_Estado, response[0].Nom_Estado);
+                document.getElementById('Estado2').selectedIndex = 0;
 
 
 
@@ -296,20 +282,18 @@ class Inventario {
     cerrarContenido() {
         $('#EditTeam').modal('hide');
         $('#CreateEqui').modal('hide');
-        $('#ModalTitulo').modal('hide');
+       
 
+       
 
-        document.getElementById('Idequi').value = "";
-        document.getElementById('Tip_Dis').value = "";
+        document.getElementById('Id').value = "";
+        document.getElementById('Titulo').value = "";
+        document.getElementById('Autor').value = "";
         document.getElementById('Marca').value = "";
-        document.getElementById('modelo').value = "";
-        document.getElementById('Pro').value = "";
-        document.getElementById('Ram').value = "";
-        document.getElementById('Tip_Disco').value = "";
-        document.getElementById('CapDisco').value = "";
-        document.getElementById('Costo').value = "";
         document.getElementById('Estado').value = "";
-        document.getElementById('Buyday').value = "";
+        document.getElementById('Genero').value = "";
+       
+        
         ShowTeam(1, "null");
 
 

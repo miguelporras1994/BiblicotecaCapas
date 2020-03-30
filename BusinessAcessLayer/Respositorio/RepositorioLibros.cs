@@ -41,6 +41,7 @@ namespace BusinessAcessLayer.Respositorio
                 Editar.Marca = model.Marca;
                 Editar.Id_Estado = model.Id_Estado;
                 Editar.Nom_Estado = model.Nom_Estado;
+                Editar.Autor = model.Autor;
 
                 Db.SaveChanges();
 

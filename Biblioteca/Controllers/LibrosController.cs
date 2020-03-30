@@ -168,6 +168,30 @@ namespace Biblioteca.Content
 
         }
 
+
+        public JsonResult EditTeam(int id)
+
+
+        {
+
+           var    Obtener   = _RepositorioLibros.ObtenerLibrosId(id);
+
+            
+
+           
+            object[] Mostrar = {Obtener };
+
+
+            var retorno = Json(Mostrar);
+            return retorno;
+
+
+
+        }
+
+
+
+
         public JsonResult ValidarComplemento(string valores)
         {
 
@@ -237,63 +261,58 @@ namespace Biblioteca.Content
         {
             var Save = "Save";
 
-
+            ModeloEstado ConsuEstado = _RepositorioEstado.ObtenerEstadoNom(State);
+            ModeloGenero ConsuGenero = _RepositorioGenero.ObtenerGeneroNom(Genero);
+            ModeloMarca ConsuMarca = _RepositorioMarca.ObtenerMarcaNom(Mar);
 
             if (difference == "Create")
             {
-                ModeloEstado ConsuEstado = _RepositorioEstado.ObtenerEstadoNom(State);
-                ModeloGenero   ConsuGenero  = _RepositorioGenero.ObtenerGeneroNom(Genero);
-                ModeloMarca  ConsuMarca = _RepositorioMarca.ObtenerMarcaNom(Mar);
+               
                 ModeloLibro Team = new ModeloLibro()
                 {
                     
                     Id_Libro = Id,
                     Titulo = Titulo,
                     Id_Genero = ConsuGenero.Id_Genero,
-
                     Genero = Genero,
                     Id_Marca = ConsuMarca.Id_Marca,
-                   Marca = Mar,
-                Id_Estado = ConsuEstado.Id_Estado,
-                Nom_Estado = State,
-                  Autor = Autor,
+                    Marca = Mar,
+                    Id_Estado = ConsuEstado.Id_Estado,
+                    Nom_Estado = State,
+                    Autor = Autor,
                 };
                 _RepositorioLibros.AgregarLibros(Team);
 
                 }
-                //if (difference == "Edit")
-                //{
-
-
-                //    var Team = Db.Eqs.Where(d => d.Id_dispositivo == Idteam).FirstOrDefault();
+                if (difference == "Edit")
+            {
 
 
 
+                ModeloLibro Team = new ModeloLibro()
+                {
+                    Id_Libro = Id,
+                    Titulo = Titulo,
+                    Id_Genero = ConsuGenero.Id_Genero,
+                    Genero = Genero,
+                    Id_Marca = ConsuMarca.Id_Marca,
+                    Marca = Mar,
+                    Id_Estado = ConsuEstado.Id_Estado,
+                    Nom_Estado = State,
+                    Autor = Autor,
+                };
 
-                //    Team.Id_marca = Mars.Id_marca;
-                //    Team.Nom_marca = Mars.Nom_marca;
-                //    Team.Modelo = Model;
-                //    Team.Id_tipo = Dispo.Id_tipo;
-                //    Team.Nom_tipo = Dispo.Nombre_tipo;
-                //    Team.Procesador = Cpu;
-                //    Team.Ram = Ram;
-                //    Team.Tipo_disco = Disk;
-                //    Team.Capa_disco = CapDisk;
-                //    Team.Costo = Cost;
-                //    Team.Fecha_de_compra = DateBuy;
-                //    Team.Id_estado = Esta.Id_estado;
-                //    Team.Nom_estado = Esta.Nom_estado;
+                _RepositorioLibros.EditarLibros(Team);
+               
 
-                //    //Db.Eqs.(Team);
-
-                //}
+            }
 
 
 
 
 
 
-                //Db.SaveChanges();
+            //Db.SaveChanges();
 
 
 
@@ -310,7 +329,7 @@ namespace Biblioteca.Content
 
 
 
-                return Save;
+            return Save;
         }
 
 

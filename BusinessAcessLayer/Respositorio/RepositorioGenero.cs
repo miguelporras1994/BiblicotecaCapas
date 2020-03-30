@@ -9,7 +9,7 @@ using DataAccessLayer;
 
 namespace BusinessAcessLayer.Respositorio
 {
-    class RepositorioGenero : IRepositorioGenero
+     public class RepositorioGenero : IRepositorioGenero
     {
         public void AgregarGenero(ModeloGenero model)
         {
@@ -41,6 +41,13 @@ namespace BusinessAcessLayer.Respositorio
             }
         }
 
+       public   ModeloGenero ObtenerGeneroNom(string Nom_Genero)
+        {
+            using (var Db = new Biblioteca())
+            {
+                return MapearAAplicacionGeneros(Db.Generos.Where(H =>H.Nom_Genero == Nom_Genero).FirstOrDefault());
+            }
+        }
         public ModeloGenero ObtenerGeneroId(int id)
         {
             using (var Db = new Biblioteca())

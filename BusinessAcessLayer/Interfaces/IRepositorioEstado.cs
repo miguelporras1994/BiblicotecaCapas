@@ -14,6 +14,7 @@ namespace BusinessAcessLayer.Interfaces
         void EditarEstado(ModeloEstado model);
         List<ModeloEstado> ObtenerTodosEstado();
         ModeloEstado ObtenerEstadoId(int id);
+        ModeloEstado ObtenerEstadoNom(string Nom_Estado);
 
 
 

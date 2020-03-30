@@ -1,5 +1,6 @@
 ﻿.barra {
     background-color: #0B610B;
+   
 }
 
 /*estilo de labe pagina de regitro defs label pagina*/
@@ -9,25 +10,9 @@ body {
     background-color: #ffffff;
 }
 
-.input {
-    width: 30%;
-    padding: 10px 15px;
-    margin: 8px;
-    margin-right: 0px;
-    margin-left: 0px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-.input2 {
-    width: 30%;
-    padding: 10px 15px;
-    margin: 8px;
-    margin-left: 0px;
-    margin-right: 0px;
-    display: inline-block;
-    border: 1px solid #ccc;
+.Espacio {
+    top : 100px;
+    
 }
 
 .input3 {

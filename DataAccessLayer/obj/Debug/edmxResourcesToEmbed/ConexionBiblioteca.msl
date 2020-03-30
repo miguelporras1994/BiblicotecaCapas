@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibreriasModelStoreContainer" CdmEntityContainer="Biblioteca">
+    <EntitySetMapping Name="Estados">
+      <EntityTypeMapping TypeName="LibreriasModel.Estados">
+        <MappingFragment StoreEntitySet="Estados">
+          <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+          <ScalarProperty Name="Nom_Estado" ColumnName="Nom_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Generos">
+      <EntityTypeMapping TypeName="LibreriasModel.Generos">
+        <MappingFragment StoreEntitySet="Generos">
+          <ScalarProperty Name="Id_Genero" ColumnName="Id_Genero" />
+          <ScalarProperty Name="Nom_Genero" ColumnName="Nom_Genero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Historial">
+      <EntityTypeMapping TypeName="LibreriasModel.Historial">
+        <MappingFragment StoreEntitySet="Historial">
+          <ScalarProperty Name="Id_Historial" ColumnName="Id_Historial" />
+          <ScalarProperty Name="Id_Tercero" ColumnName="Id_Tercero" />
+          <ScalarProperty Name="Nombre_Ter" ColumnName="Nombre_Ter" />
+          <ScalarProperty Name="Id_Libro" ColumnName="Id_Libro" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Fecha_Pres" ColumnName="Fecha_Pres" />
+          <ScalarProperty Name="Fecha_Devo" ColumnName="Fecha_Devo" />
+          <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+          <ScalarProperty Name="Nom_Estado" ColumnName="Nom_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="libros">
+      <EntityTypeMapping TypeName="LibreriasModel.libros">
+        <MappingFragment StoreEntitySet="libros">
+          <ScalarProperty Name="Id_Libro" ColumnName="Id_Libro" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Id_Genero" ColumnName="Id_Genero" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Id_Marca" ColumnName="Id_Marca" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+          <ScalarProperty Name="Nom_Estado" ColumnName="Nom_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marcas">
+      <EntityTypeMapping TypeName="LibreriasModel.Marcas">
+        <MappingFragment StoreEntitySet="Marcas">
+          <ScalarProperty Name="Id_Marca" ColumnName="Id_Marca" />
+          <ScalarProperty Name="Nom_Marca" ColumnName="Nom_Marca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tercero">
+      <EntityTypeMapping TypeName="LibreriasModel.Tercero">
+        <MappingFragment StoreEntitySet="Tercero">
+          <ScalarProperty Name="Id_Tercero" ColumnName="Id_Tercero" />
+          <ScalarProperty Name="Nombre_Ter" ColumnName="Nombre_Ter" />
+          <ScalarProperty Name="Apellido_Ter" ColumnName="Apellido_Ter" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Fecha_Nacimi" ColumnName="Fecha_Nacimi" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+          <ScalarProperty Name="Cuidad" ColumnName="Cuidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

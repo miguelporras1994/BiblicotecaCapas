@@ -9,7 +9,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
     @*desarrollo css*@
-
+    <link rel="stylesheet" href="~/Content/diseno.css" type="text/css" media="all" />
     <link rel="stylesheet" href="~/Content/EstiloInv.css" type="text/css" media="all" />
 
 
@@ -23,7 +23,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top barra ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,7 +36,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Libros", "Index", "Libros")</li>
-                    <li>@Html.ActionLink("Tercero", "IndexTer", "Tercero")</li>
                     <li>@Html.ActionLink("Historial", "IndexHis", "Historia")</li>
                 </ul>
             </div>

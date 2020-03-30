@@ -11,6 +11,7 @@ namespace BusinessAcessLayer.Modelos
 
 
         public int Id_Libro { get; set; }
+        
         public string Titulo { get; set; }
         public int? Id_Genero { get; set; }
         public string Genero { get; set; }
@@ -18,6 +19,7 @@ namespace BusinessAcessLayer.Modelos
         public string Marca { get; set; }
         public int? Id_Estado { get; set; }
         public string Nom_Estado { get; set; }
+        public string Autor { get; set; }
 
 
     }

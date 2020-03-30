@@ -41,7 +41,17 @@ namespace BusinessAcessLayer.Respositorio
             }
         }
 
-        public ModeloMarca ObtenerMarca(int id)
+        public  ModeloMarca ObtenerMarcaNom(string Nom_Marca)
+        {
+
+            var Codigo = Nom_Marca;
+            using (var Db = new Biblioteca())
+            {
+                return MapearAAplicacionMarca(Db.Marcas.Where(d => d.Nom_Marca == Codigo).FirstOrDefault());
+            }
+
+        }
+        public ModeloMarca ObtenerMarcaid(int id)
         {
             using (var Db = new Biblioteca())
             {

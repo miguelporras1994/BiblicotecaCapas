@@ -5,72 +5,324 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="Espacio"></div>
+<br />
+<center><h2>Listado De Libros</h2></center>
+<br />
+<br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<a class="btn btn-success " data-toggle="modal" data-target="#CreateEqui" onclick="InfoCreate()">Ingresar Nuevo Libro</a>
+<br />
+<br />
+@*<div class="row">
+    <div class="col-md-4">
+        <input id="searchid" placeholder="Buscar Por Codigo" onkeyup="ShowTeam(1,'Id')" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <input id="searchTeam" placeholder="Buscar Por Titulo" onkeyup="ShowTeam(1,'Titulo')" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <input id="searchTeam" placeholder="Buscar Por Genero" onkeyup="ShowTeam(1,'Genero')" class="form-control" />
+    </div>
+</div>*@
+
+
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id_Libro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Id_Genero)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Genero)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Id_Marca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Marca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Id_Estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nom_Estado)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id_Libro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id_Genero)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genero)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id_Marca)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Marca)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id_Estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nom_Estado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    <thead>
+        <tr>
+
+            <th>
+                Codigo Interno
+
+            </th>
+            <th>
+                Titulo
+            </th>
+            <th>
+                Autor
+            </th>
+
+
+            <th>
+                Genero
+            </th>
+
+            <th>
+                Editorial
+            </th>
+
+            <th>
+                Estado
+            </th>
+
+        </tr>
+    </thead>
+
+
+    <tbody id="ResultTeam"> </tbody>
+
+
 
 </table>
+
+<p id="ResultPag"></p>
+
+<div class="modal fade" id="CreateEqui" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <center><h4 class="modal-title" id="myModalLabel">Ingresar Libro Nuevo</h4> </center>
+            </div>
+
+            <div class="modal-body">
+
+
+                <div class=" row Derecho">
+                    <div class="col-sm-6 DerechoAbajo">
+                        <center>
+                            <p class="Title2">Codigo</p>
+
+
+                            <input class="input" type="text" id="Id">
+                        </center>
+
+                    </div>
+
+
+
+                    <div class=" col-sm-6 izquierdo">
+                      
+                            <center>
+                                <p class="Title2">Titulo </p>
+
+
+                                <input class="input" type="text" id="Titulo">
+                            </center>
+                       
+                    </div>
+
+                </div>
+
+
+
+
+                <div class=" row Derecho">
+
+                    <div class="  col-sm-6  Derecho">
+                        <center>
+                            <p class="Title2"> Autor </p>
+
+
+
+                            <input class="input" type="text" id="Autor">
+                        </center>
+                    </div>
+
+
+
+
+
+                    <div class="  col-sm-6  izquierdoAbajo">
+                        <center>
+                            <p class="Title2">Estado </p>
+
+
+                            <select class="input" id="Estado" name="select">
+                                <option value="0">Seleccione un el Estado</option>
+                            </select>
+                        </center>
+                    </div>
+
+
+                </div>
+
+                <div class=" row Derecho">
+                    <div class="col-sm-6 DerechoAbajo">
+                        <center>
+                            <p class="Title2">Marca </p>
+
+
+
+                            <select class="input" id="Marca" name="select">
+                                <option value="0">Seleccione un el Marca</option>
+                            </select>
+
+                        </center>
+
+
+                    </div>
+
+
+
+                    <div class=" col-sm-6 izquierdo">
+                        <center>
+                            <p class="Title2"> Genero </p>
+
+
+
+                            <select class="input" id="Genero" name="select">
+                                <option value="0">Seleccione un el Dispositivo</option>
+
+                            </select>
+                        </center>
+                    </div>
+
+                </div>
+
+
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <input type="submit" class="btn btn-success" onclick="SaveTeam('Create')">
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+<div class="modal fade" id="EditTeam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <center><h4 class="modal-title" id="myModalLabel">Editar libro</h4> </center>
+            </div>
+
+            <div class="modal-body">
+
+
+
+
+
+
+                <input  type="hidden" id="Id2">
+
+
+
+
+
+                <div class=" row Derecho">
+                    <div class="col-sm-6 DerechoAbajo">
+                        <center>
+                            <p class="Title2">Titulo </p>
+
+
+                            <input class="input" type="text" id="Titulo2">
+                        </center>
+
+                    </div>
+
+
+
+                    <div class=" col-sm-6 izquierdo">
+                        <center>
+                            <p class="Title2"> Autor </p>
+
+
+
+                            <input class="input" type="text" id="Autor2">
+                        </center>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class=" row Derecho">
+
+                    <div class="  col-sm-6  Derecho">
+                        <center>
+                            <p class="Title2">Marca </p>
+
+
+
+                            <select class="input" id="Marca2" name="select">
+                                <option value="0">Seleccione un el Marca</option>
+                            </select>
+
+                        </center>
+                    </div>
+
+
+
+
+
+                    <div class="  col-sm-6  izquierdoAbajo">
+                        <center>
+                            <p class="Title2">Estado </p>
+
+
+                            <select class="input" id="Estado2" name="select">
+                                <option value="0">Seleccione un el Estado</option>
+                            </select>
+                        </center>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <center>
+                    <p class="Title2"> Genero </p>
+
+
+
+                    <select class="input" id="Genero2" name="select">
+                        <option value="0">Seleccione un el Dispositivo</option>
+
+                    </select>
+                </center>
+
+
+
+
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <input type="submit" class="btn btn-success" onclick="SaveTeam('Edit')">
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>

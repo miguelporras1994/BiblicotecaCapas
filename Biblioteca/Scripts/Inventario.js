@@ -1,28 +1,35 @@
-﻿alert("Hola")
+﻿
 $().ready(() => {
-    var url = window.location;
-    switch (url.pathname) {
-        case "/libros/index":
+    ShowTeam(1, "null");
+    //var url = window.location;
+    //switch (url.pathname) {
+        
+    //    case "/Libros":
 
-            ShowTeam(1, "null");
-            break;
+    //        ShowTeam(1, "null");
+    //        break;
+
+    //    case "/Libros/Index":
+
+    //        ShowTeam(1, "null");
+    //        break;
+
+         
 
 
-
-
-    }
+    //}
 });
 ShowTeam = (Numpagina, Dife) => {
 
 
-    var Valor = document.getElementById("searchid").value;
-    if (Valor == "") {
-        Valor = document.getElementById("searchTeam").value;
+    //var Valor = document.getElementById("searchid").value;
+    //if (Valor == "") {
+    //    Valor = document.getElementById("searchTeam").value;
 
-    } if (Valor == "") {
+    //} if (Valor == "") {
         Valor = "null";
-    }
-    var Action = "Index";
+    //}
+    var Action = "Libros/ShowTeam";
     var Enviar = new Inventario();
 
     Enviar.ShowTeam(Action, Valor, Dife, Numpagina);
@@ -32,7 +39,7 @@ ShowTeam = (Numpagina, Dife) => {
 function EditTeam(id) {
 
     document.getElementById('Idequi2').innerHTML = id;
-    var action = '/Inventario/EditTeam';
+     var action = '/Inventario/EditTeam';
     var enviar = new Inventario();
     HallarComplemento('Marca');
     HallarComplemento('Estado');
@@ -43,12 +50,12 @@ function EditTeam(id) {
 var InfoCreate = () => {
     HallarComplemento('Marca');
     HallarComplemento('Estado');
-    HallarComplemento('Dispositivo');
+    HallarComplemento('Genero');
 
 }
 
 var HallarComplemento = (valores) => {
-    var action = 'ValidarComplemento';
+    var action = 'Libros/ValidarComplemento';
 
     var envio = new Inventario()
     envio.validarComplemento(action, valores);
@@ -64,17 +71,12 @@ var SaveTeam = (difference) => {
 
     var informacion = new FormData();
     if (difference == 'Create') {
-        var Idteam = document.getElementById('Idequi').value;
-        var Device = document.getElementById('Tip_Dis').value;
+        var Id = document.getElementById('Id').value;
+        var Titulo = document.getElementById('Titulo').value;
+        var Autor = document.getElementById('Autor').value;
         var Mar = document.getElementById('Marca').value;
-        var Model = document.getElementById('modelo').value;
-        var Cpu = document.getElementById('Pro').value;
-        var Ram = document.getElementById('Ram').value;
-        var Disk = document.getElementById('Tip_Disco').value;
-        var CapDisk = document.getElementById('CapDisco').value;
-        var Cost = document.getElementById('Costo').value;
         var State = document.getElementById('Estado').value;
-        var DateBuy = document.getElementById('Buyday').value;
+        var Genero = document.getElementById('Genero').value;
 
 
 
@@ -82,17 +84,14 @@ var SaveTeam = (difference) => {
 
     if (difference == "Edit") {
 
-        var Idteam = document.getElementById('Idequi2').innerText;
-        var Device = document.getElementById('Tip_Dis2').value;
+        var Id = document.getElementById('Id2').value;
+        var Titulo = document.getElementById('Titulo2').value;
+        var Autor = document.getElementById('Autor2').value;
         var Mar = document.getElementById('Marca2').value;
-        var Model = document.getElementById('modelo2').value;
-        var Cpu = document.getElementById('Pro2').value;
-        var Ram = document.getElementById('Ram2').value;
-        var Disk = document.getElementById('Tip_Disco2').value;
-        var CapDisk = document.getElementById('CapDisco2').value;
-        var Cost = document.getElementById('Costo2').value;
         var State = document.getElementById('Estado2').value;
-        var DateBuy = document.getElementById('Buyday2').innerText;
+        var Genero = document.getElementById('Genero2').value;
+
+       
 
 
 
@@ -100,20 +99,15 @@ var SaveTeam = (difference) => {
 
     }
 
-    informacion.append("Idteam", Idteam)
-    informacion.append("Device", Device)
+    informacion.append("Id", Id)
+    informacion.append("Titulo", Titulo)
+    informacion.append("Autor", Autor)
     informacion.append("Mar", Mar)
-    informacion.append("Model", Model)
-    informacion.append("Cpu", Cpu)
-    informacion.append("Ram", Ram)
-    informacion.append("Disk", Disk)
-    informacion.append("CapDisk", CapDisk)
-    informacion.append("Cost", Cost)
     informacion.append("State", State)
-    informacion.append("DateBuy", DateBuy)
+    informacion.append("Genero", Genero)
     informacion.append("difference", difference)
 
-    var action = '/Inventario/SaveTeam';
+    var action = 'Libros/SaveTeam';
 
 
 
@@ -158,8 +152,8 @@ class Inventario {
                         case "Marca":
 
                             for (var i = 0; i < response.length; i++) {
-                                document.getElementById('Marca').options[count] = new Option(response[i].Nom_marca, response[i].Nom_marca);
-                                document.getElementById('Marca2').options[count] = new Option(response[i].Nom_marca, response[i].Nom_marca);
+                                document.getElementById('Marca').options[count] = new Option(response[i].Nom_Marca, response[i].Nom_Marca);
+                                document.getElementById('Marca2').options[count] = new Option(response[i].Nom_Marca, response[i].Nom_Marca);
                                 count++;
                             }
 
@@ -168,19 +162,19 @@ class Inventario {
                         case "Estado":
 
                             for (var i = 0; i < response.length; i++) {
-                                document.getElementById('Estado').options[count] = new Option(response[i].Nom_estado, response[i].Nom_estado);
-                                document.getElementById('Estado2').options[count] = new Option(response[i].Nom_estado, response[i].Nom_estado);
+                                document.getElementById('Estado').options[count] = new Option(response[i].Nom_Estado, response[i].Nom_Estado);
+                                document.getElementById('Estado2').options[count] = new Option(response[i].Nom_Estado, response[i].Nom_Estado);
                                 count++;
                             }
 
                             break;
 
 
-                        case "Dispositivo":
+                        case "Genero":
 
                             for (var i = 0; i < response.length; i++) {
-                                document.getElementById('Tip_Dis').options[count] = new Option(response[i].Nombre_tipo, response[i].Nombre_tipo);
-                                document.getElementById('Tip_Dis2').options[count] = new Option(response[i].Nombre_tipo, response[i].Nombre_tipo);
+                                document.getElementById('Genero').options[count] = new Option(response[i].Nom_Genero, response[i].Nom_Genero);
+                                document.getElementById('Genero2').options[count] = new Option(response[i].Nom_Genero, response[i].Nom_Genero);
                                 count++;
                             }
 
@@ -217,6 +211,8 @@ class Inventario {
             data: informacion,
             success: (response) => {
 
+                Console.log(response);
+              
 
                 if (response = "save") {
 

@@ -8,7 +8,7 @@ using BusinessAcessLayer.Modelos;
 using DataAccessLayer;
 namespace BusinessAcessLayer.Respositorio
 {
-    class RepositorioEstado : IRepositorioEstado
+     public class RepositorioEstado : IRepositorioEstado
     {
         public void AgregarEstado(ModeloEstado model)
         {
@@ -40,6 +40,17 @@ namespace BusinessAcessLayer.Respositorio
             }
         }
 
+        public ModeloEstado ObtenerEstadoNom(string Nom_Estado) {
+            string codigo = Nom_Estado;
+
+            using (var Db = new Biblioteca())
+            {
+                return MapearAAplicacionEstados(Db.Estados.Where( d =>d.Nom_Estado ==  codigo).FirstOrDefault());
+            }
+
+        }
+
+
         public ModeloEstado ObtenerEstadoId(int id)
         {
             using (var Db = new Biblioteca())
@@ -54,6 +65,8 @@ namespace BusinessAcessLayer.Respositorio
             {
                 return Db.Estados.Select(MapearAAplicacionEstados).ToList();
             }
+
+
         }
 
 

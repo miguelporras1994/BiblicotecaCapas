@@ -37,10 +37,10 @@ namespace DataAccessLayer
         [StringLength(60)]
         public string Nom_Estado { get; set; }
 
-        public virtual Estados Estados { get; set; }
+        //public virtual Estados Estados { get; set; }
 
-        public virtual libros libros { get; set; }
+        //public virtual libros libros { get; set; }
 
-        public virtual Tercero Tercero { get; set; }
+        //public virtual Tercero Tercero { get; set; }
     }
 }

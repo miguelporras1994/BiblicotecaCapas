@@ -1,0 +1,192 @@
+﻿.barra {
+    background-color: #0B610B;
+}
+
+/*estilo de labe pagina de regitro defs label pagina*/
+
+body {
+    padding: 5%;
+    background-color: #ffffff;
+}
+
+.input {
+    width: 30%;
+    padding: 10px 15px;
+    margin: 8px;
+    margin-right: 0px;
+    margin-left: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.input2 {
+    width: 30%;
+    padding: 10px 15px;
+    margin: 8px;
+    margin-left: 0px;
+    margin-right: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+.input3 {
+    width: 30%;
+    padding: 10px 15px;
+    margin: 8px;
+    margin-left: 0px;
+    margin-right: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+.envio {
+    background-color: #0B610B;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+.input3 {
+    width: 60%;
+    padding: 10px 15px;
+    margin: 8px;
+    margin-right: 0px;
+    margin-left: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/*Estilo de la pagina de certificados Labolares*/
+
+
+.Posionartextolaboral {
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -45%);
+}
+
+
+
+
+.TituloLaboral {
+    align-content: center;
+    padding-top: 90px;
+    padding-bottom: 80px;
+}
+
+.JustificarLaboral {
+    text-align: justify;
+}
+
+.Fechalaboral {
+    padding-top: 20px;
+}
+
+
+.AttLaboral {
+    padding-top: 40px;
+}
+
+.FirmaLaboral {
+    padding-top: 80px;
+}
+
+.pie {
+    padding-top: 170px;
+}
+
+
+/*Estilos de certificados de la nomina*/
+
+
+.PosionartextoNomina {
+    position: absolute;
+    top: 27%;
+    transform: translate( 17%, -28%);
+}
+
+.FechaNomina {
+    text-align: right;
+}
+
+.th1 {
+    padding-right: 0px;
+}
+
+.th2 {
+    padding-left: 10px;
+}
+
+
+.th3 {
+    padding-left: 8px;
+}
+
+.th4 {
+    padding-left: 18px;
+}
+
+.td1 {
+    padding-left: 0px;
+    padding-top: 8px;
+}
+
+.td2 {
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
+.td3 {
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
+.td4 {
+    padding-left: 24px;
+    padding-top: 8px;
+}
+
+.p1 {
+    padding-top: 10px;
+}
+
+.FirmaNomina {
+    position: absolute;
+    /*padding-right: 90px;*/
+}
+
+
+/* contenido */
+
+
+.texto {
+    height: 300px;
+    width: 300%;
+}
+
+.advertecia {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /*color: azure;*/
+}
+
+.classadvertecia {
+    max-width: 500px;
+    /*background-color: #A72408;*/
+}
+
+.url {
+    width: 500%;
+    padding: 10px 15px;
+    margin: 8px;
+    margin-right: 0px;
+    margin-left: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}

@@ -15,5 +15,6 @@ namespace BusinessAcessLayer.Interfaces
         void EditarGenero(ModeloGenero  model);
         List<ModeloGenero> ObtenerTodosGenero();
          ModeloGenero ObtenerGeneroId(int id);
+        ModeloGenero ObtenerGeneroNom(string Nom_Genero);
     }
 }

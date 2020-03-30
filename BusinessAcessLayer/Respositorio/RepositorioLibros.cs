@@ -8,16 +8,24 @@ using BusinessAcessLayer.Modelos;
 
 using DataAccessLayer;
 
+
 namespace BusinessAcessLayer.Respositorio
 {
     public class RepositorioLibros : IRepositorioLibros
     {
         public void AgregarLibros(ModeloLibro model)
         {
-            using (var Db = new Biblioteca())
-            {
-                Db.libros.Add(MapearLibroDataBase(model));
-            }
+           
+                using (var Db = new Biblioteca())
+                {
+                    Db.libros.Add(MapearLibroDataBase(model));
+                    Db.SaveChanges();
+                    
+                }
+
+
+
+         
         }
 
         public void EditarLibros(ModeloLibro model)
@@ -75,6 +83,7 @@ namespace BusinessAcessLayer.Respositorio
             {
                 Id_Libro = modelo.Id_Libro,
                 Titulo = modelo.Titulo,
+                Autor = modelo.Autor,
                 Id_Genero = modelo.Id_Genero,
                 Genero = modelo.Genero,
                 Id_Marca = modelo.Id_Marca,
@@ -90,6 +99,7 @@ namespace BusinessAcessLayer.Respositorio
             {
                 Id_Libro = Tabla.Id_Libro,
                 Titulo = Tabla.Titulo,
+                Autor = Tabla.Autor,
                 Id_Genero = Tabla.Id_Genero,
                 Genero = Tabla.Genero,
                 Id_Marca = Tabla.Id_Marca,

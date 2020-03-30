@@ -14,7 +14,8 @@ namespace BusinessAcessLayer.Interfaces
         void EliminarMarca(int id);
         void EditarMarca(ModeloMarca model);
         List<ModeloMarca> ObtenerTodosMarca();
-        ModeloMarca ObtenerMarca(int id);
+        ModeloMarca ObtenerMarcaid(int id);
+        ModeloMarca ObtenerMarcaNom(string Nom_Marca);
 
     }
 }
